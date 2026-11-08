@@ -229,7 +229,7 @@ return x;          // 0~5</pre><div class="pill-row" style="margin-top:15px"><sp
 </section>
 <!-- 08 -->
 <section class="slide" data-topic="07 / BINOMIAL" data-note="[약 35초] 이제 시행이 서로 독립이라고 가정한 이상적인 모델을 비교합니다. 10,000회에서 당첨 확률 1%면 X~B(10000,.01), 기댓값 100입니다. 편향된 확률 0.01164153이면 Y~B(10000,.01164153), 기댓값 약 116.42입니다. 실제 시뮬레이션 결과는 매번 조금 다릅니다. 같은 PRNG라는 이유만으로 독립이 자동 보장되지 않음을 주의해 주세요.">
-  <div class="inner"><div class="kicker">07 / 3단원 확률변수 · 이항분포 · 기댓값</div><h2>확률 0.164%p 차이.<br><span class="accent">10,000번이면 얼마나?</span></h2><div class="expected-grid"><div class="exp-card"><div class="panel-head">INTENDED / 1%</div><div class="formula formula-sm" id="bin-model-normal">X ~ B(10000, 0.01)</div><div class="small muted" id="bin-formula-normal" style="margin-top:10px">E(X) = np = 10000 × 0.01</div><div class="big-num green" id="bin-expected-normal" style="margin-top:8px">100회</div><div class="result">모의실험 결과 <b id="bin-normal">—</b> 회</div></div><div class="exp-card alt"><div class="panel-head">BIASED / 약 1.164%</div><div class="formula formula-sm" id="bin-model-biased">Y ~ B(10000, 0.0116415)</div><div class="small muted" id="bin-formula-biased" style="margin-top:10px">E(Y) = np ≈ 116.4</div><div class="big-num gold" id="bin-expected-biased" style="margin-top:8px">116.4회</div><div class="result">모의실험 결과 <b id="bin-biased">—</b> 회</div></div></div><div class="lab-control bin-control"><div class="lab-control-head"><strong>독립시행 횟수 n</strong><output id="bin-n-out">10,000</output></div><input id="bin-n" type="range" min="1000" max="20000" step="1000" value="10000"></div><div class="pill-row"><button class="btn" id="run-binomial">▶ 한 세트 실행</button><button class="btn secondary" id="bin-avg100">▶ 100세트 평균 비교</button><span class="tag">독립인 베르누이 시행을 가정</span></div><div class="sim-verdict mono" id="bin-avg-result">기댓값과 실제 결과를 비교하세요.</div><div class="note">기댓값은 <b>반드시 그만큼 나온다는 뜻이 아니라</b> 반복 실험의 평균적 수준. 여기서는 <b>독립시행이라는 별도 가정</b>이 필요하다.</div></div>
+  <div class="inner"><div class="kicker">07 / 3단원 확률변수 · 이항분포 · 기댓값</div><h2>확률 <span id="bin-diff-percent">0.164</span>%p 차이.<br><span class="accent">10,000번이면 얼마나?</span></h2><div class="expected-grid"><div class="exp-card"><div class="panel-head" id="bin-title-normal">INTENDED / 1%</div><div class="formula formula-sm" id="bin-model-normal">X ~ B(10000, 0.01)</div><div class="small muted" id="bin-formula-normal" style="margin-top:10px">E(X) = np = 10000 × 0.01</div><div class="big-num green" id="bin-expected-normal" style="margin-top:8px">100회</div><div class="result">모의실험 결과 <b id="bin-normal">—</b> 회</div></div><div class="exp-card alt"><div class="panel-head" id="bin-title-biased">BIASED / 약 1.164%</div><div class="formula formula-sm" id="bin-model-biased">Y ~ B(10000, 0.0116415)</div><div class="small muted" id="bin-formula-biased" style="margin-top:10px">E(Y) = np ≈ 116.4</div><div class="big-num gold" id="bin-expected-biased" style="margin-top:8px">116.4회</div><div class="result">모의실험 결과 <b id="bin-biased">—</b> 회</div></div></div><div class="lab-control bin-control"><div class="lab-control-head"><strong>독립시행 횟수 n</strong><output id="bin-n-out">10,000</output></div><input id="bin-n" type="range" min="1000" max="20000" step="1000" value="10000"></div><div class="pill-row"><button class="btn" id="run-binomial">▶ 한 세트 실행</button><button class="btn secondary" id="bin-avg100">▶ 100세트 평균 비교</button><span class="tag">독립인 베르누이 시행을 가정</span></div><div class="sim-verdict mono" id="bin-avg-result">기댓값과 실제 결과를 비교하세요.</div><div class="note">기댓값은 <b>반드시 그만큼 나온다는 뜻이 아니라</b> 반복 실험의 평균적 수준. 여기서는 <b>독립시행이라는 별도 가정</b>이 필요하다.</div></div>
 </section>
 <!-- 09 -->
 <section class="slide" data-topic="08 / CONCLUSION" data-note="[약 20초] 결론은 편향의 출처를 수학으로 검증할 수 있다는 것입니다. 경우의 수로 왜 오류가 나는지, 조건부확률로 왜 기각 샘플링이 해결하는지, 이항분포로 반복 시행의 차이가 어떤 의미인지 확인했습니다. 실제 블루 아카이브의 확률 조작을 주장하는 발표가 아니라 가상의 추첨 시스템을 실험한 발표임을 덧붙입니다. 출처는 하단에 실어 두었습니다.">
@@ -244,7 +244,7 @@ function go(i){i=Math.max(0,Math.min(i,slides.length-1));slides[i].scrollIntoVie
 function update(i){slides.forEach((s,j)=>s.classList.toggle("is-active",i===j));current=i;counter.textContent=`${String(i+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;progress.style.width=`${(i+1)/slides.length*100}%`;document.querySelectorAll('.dot').forEach((d,j)=>{d.classList.toggle('active',i===j);d.setAttribute('aria-current',i===j?'step':'false')});noteBody.textContent=slides[i].dataset.note||''}
 const observer=new IntersectionObserver(entries=>{let best=entries.filter(x=>x.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(best)update(slides.indexOf(best.target))},{root:deck,threshold:[.35,.55,.75]});slides.forEach(s=>observer.observe(s));
 deck.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)<4)return;if(e.target.closest('#notes'))return;e.preventDefault();const now=performance.now();if(now-wheelLock<600)return;wheelLock=now;go(current+(e.deltaY>0?1:-1))},{passive:false});
-window.addEventListener('keydown',e=>{const tag=document.activeElement?.tagName;if(tag==='INPUT'||tag==='TEXTAREA')return;if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(e.key)){if(e.key==='Enter'&&tag==='BUTTON')return;e.preventDefault();go(current+1)}else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(current-1)}else if(e.key==='Home'){e.preventDefault();go(0)}else if(e.key==='End'){e.preventDefault();go(slides.length-1)}else if(e.key.toLowerCase()==='n'){notes.classList.toggle('visible')}else if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen?.().catch(()=>{});else document.exitFullscreen?.().catch(()=>{})}});
+window.addEventListener('keydown',e=>{const tag=document.activeElement?.tagName;if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT')return;if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(e.key)){if(e.key==='Enter'&&tag==='BUTTON')return;e.preventDefault();go(current+1)}else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(current-1)}else if(e.key==='Home'){e.preventDefault();go(0)}else if(e.key==='End'){e.preventDefault();go(slides.length-1)}else if(e.key.toLowerCase()==='n'){notes.classList.toggle('visible')}else if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen?.().catch(()=>{});else document.exitFullscreen?.().catch(()=>{})}});
 update(0);
 // 02: The probability of at least one success changes with the control.
 const drawResults=document.querySelector('#draw-results');
@@ -329,14 +329,14 @@ updateMapping();
 // 05: histogram comparison (empirical)
 function sixBarRoot(rootId,fix){const root=document.querySelector('#'+rootId);root.replaceChildren();const refs=[];for(let i=0;i<6;i++){const column=document.createElement('div');column.className='barcol';const pct=document.createElement('div');pct.className='barpct';pct.textContent='—';const bar=document.createElement('div');bar.className='bar'+(fix?' fixed':'');bar.style.height='3%';const idx=document.createElement('div');idx.className='baridx';idx.textContent=i;column.append(pct,bar,idx);root.append(column);refs.push({bar,pct})}return refs}const refsBiased=sixBarRoot('biased-bars',false),refsFixed=sixBarRoot('fixed-bars',true);let experimentCount=0;function experiment(){const N=Number(document.querySelector("#sim-n").value);const biased=Array(6).fill(0),fixed=Array(6).fill(0);for(let i=0;i<N;i++){const x=Math.floor(Math.random()*9);biased[x%6]++;let y;do{y=Math.floor(Math.random()*9)}while(y>=6);fixed[y]++}for(const [refs,counts] of [[refsBiased,biased],[refsFixed,fixed]])for(let i=0;i<6;i++){const p=counts[i]*100/N;refs[i].bar.style.height=`${(p/27)*100}%`;refs[i].pct.textContent=p.toFixed(1)+'%'}document.querySelector('#experiment-status').textContent=`실험 #${++experimentCount} · 각 ${N.toLocaleString("ko-KR")}회`;document.querySelector('#sim-verdict').textContent=`BUGGY P(0) = ${(biased[0]/N*100).toFixed(2)}% · FIXED P(0) = ${(fixed[0]/N*100).toFixed(2)}% · 이론값 22.22% vs 16.67%`}document.querySelector('#run-experiment').addEventListener('click',experiment);experiment();
 // 06: Actual probability under the 32-bit modulo model, for target rates below the remainder fraction.
-const mapleTarget=document.querySelector('#maple-target'),sourceSize=2**32;
+const mapleTarget=document.querySelector('#maple-target'),sourceSize=2**32;let targetP=.01,biasedP=50000000/4294967296,binRefreshCallback=null;
 function updateMaple(){
- const p=Number(mapleTarget.value),threshold=Math.round(p/100*1e9),actual=(5*threshold)/sourceSize;
+ const p=Number(mapleTarget.value),threshold=Math.round(p/100*1e9),actual=(5*threshold)/sourceSize;targetP=p/100;biasedP=actual;
  document.querySelector('#maple-target-out').textContent=p.toFixed(1)+'%';
  document.querySelector('#maple-equation').innerHTML='P(A) = (5 × '+threshold.toLocaleString('ko-KR')+') / 2<sup>32</sup>';
  document.querySelector('#maple-intended').textContent=p.toFixed(3)+'%';
  document.querySelector('#maple-actual').textContent=(actual*100).toFixed(3)+'%';
- document.querySelector('#maple-relative').textContent='약 '+(100*(actual/(p/100)-1)).toFixed(1)+'% 증가';
+ document.querySelector('#maple-relative').textContent='약 '+(100*(actual/(p/100)-1)).toFixed(1)+'% 증가';if(binRefreshCallback)binRefreshCallback();
 }
 mapleTarget.addEventListener('input',updateMaple);updateMaple();
 // 07: Rejection sampling stepper, deliberately fictional 0..8 generator.
@@ -354,19 +354,18 @@ document.querySelector('#rejection-draw').addEventListener('click',rejectionStep
 document.querySelector('#rejection-loop').addEventListener('click',()=>{let count=0;while(!rejectionStep()&&count++<100){} });
 // 08: Independent binomial model and repeated runs of the same simulation.
 const binN=document.querySelector('#bin-n');
-const biasedP=50000000/4294967296;
 function refreshBinomial(){
  const n=Number(binN.value);
  document.querySelector('#bin-n-out').textContent=n.toLocaleString('ko-KR');
- document.querySelector('#bin-model-normal').textContent='X ~ B('+n+', 0.01)';
- document.querySelector('#bin-model-biased').textContent='Y ~ B('+n+', 0.0116415)';
- document.querySelector('#bin-formula-normal').textContent='E(X) = np = '+n+' × 0.01';
+ document.querySelector('#bin-model-normal').textContent='X ~ B('+n+', '+targetP.toFixed(4)+')';document.querySelector('#bin-title-normal').textContent='INTENDED / '+(targetP*100).toFixed(1)+'%';
+ document.querySelector('#bin-model-biased').textContent='Y ~ B('+n+', '+biasedP.toFixed(6)+')';document.querySelector('#bin-title-biased').textContent='BIASED / '+(biasedP*100).toFixed(3)+'%';document.querySelector('#bin-diff-percent').textContent=((biasedP-targetP)*100).toFixed(3);
+ document.querySelector('#bin-formula-normal').textContent='E(X) = np = '+n+' × '+targetP.toFixed(4);
  document.querySelector('#bin-formula-biased').textContent='E(Y) = np ≈ '+(n*biasedP).toFixed(2);
- document.querySelector('#bin-expected-normal').textContent=(n*.01).toFixed(n%100===0?0:1)+'회';
+ document.querySelector('#bin-expected-normal').textContent=(n*targetP).toFixed(1)+'회';
  document.querySelector('#bin-expected-biased').textContent=(n*biasedP).toFixed(1)+'회';
 }
 binN.addEventListener('input',refreshBinomial);refreshBinomial();
-function binTrial(n){let a=0,b=0;for(let i=0;i<n;i++){if(Math.random()<.01)a++;if(Math.random()<biasedP)b++}return [a,b]}
+function binTrial(n){let a=0,b=0;for(let i=0;i<n;i++){if(Math.random()<targetP)a++;if(Math.random()<biasedP)b++}return [a,b]}
 function experimentBinomial(){
  const [a,b]=binTrial(Number(binN.value));
  document.querySelector('#bin-normal').textContent=a.toLocaleString('ko-KR');
@@ -377,11 +376,11 @@ document.querySelector('#run-binomial').addEventListener('click',experimentBinom
 document.querySelector('#bin-avg100').addEventListener('click',()=>{
  const n=Number(binN.value);let a=0,b=0;
  for(let i=0;i<100;i++){const pair=binTrial(n);a+=pair[0];b+=pair[1]}
- document.querySelector('#bin-avg-result').textContent='100세트 평균 · 정상 '+(a/100).toFixed(2)+'회 / 편향 '+(b/100).toFixed(2)+'회 · 기댓값 '+(n*.01).toFixed(2)+' vs '+(n*biasedP).toFixed(2);
+ document.querySelector('#bin-avg-result').textContent='100세트 평균 · 정상 '+(a/100).toFixed(2)+'회 / 편향 '+(b/100).toFixed(2)+'회 · 기댓값 '+(n*targetP).toFixed(2)+' vs '+(n*biasedP).toFixed(2);
  document.querySelector('#bin-normal').textContent=(a/100).toFixed(1);
  document.querySelector('#bin-biased').textContent=(b/100).toFixed(1);
 });
-experimentBinomial();
+experimentBinomial();binRefreshCallback=()=>{refreshBinomial();experimentBinomial()};
 /* ===== V3 / keyboard command palette ===== */
 const cmdOverlay=document.querySelector('#command-overlay'),cmdInput=document.querySelector('#command-search'),cmdResults=document.querySelector('#command-results');
 let cmdSelection=0,cmdMatches=[];
