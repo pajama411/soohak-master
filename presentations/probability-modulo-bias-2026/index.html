@@ -131,9 +131,57 @@ h1 .accent,h2 .accent{background:linear-gradient(115deg,#9bfdff 5%,#52bcfd 70%,#
 .hero .arona-shell .arona-viewport{position:absolute;inset:0;display:block;overflow:hidden;filter:none}
 .hero .arona-shell img{display:block;width:100%;height:100%;object-fit:cover;max-height:none;mix-blend-mode:normal;filter:none;animation:none;transform:none}
 @media(max-width:600px){.hero .hero-art{min-height:185px;max-height:210px}.hero .arona-shell{width:min(320px,80vw);height:auto}}
+
+/* ===== V3 / EXPERIMENT LAB / presentation controls ===== */
+.lab-control{margin:12px 0 3px;padding:12px 17px;border:1px solid #315879;border-radius:10px;background:linear-gradient(100deg,#0b1a2b,#101d33);display:flex;flex-direction:column;gap:10px;box-shadow:inset 0 1px #fff1}
+.lab-control-head{display:flex;align-items:center;justify-content:space-between;font:700 12px ui-monospace,Consolas,monospace;letter-spacing:.07em;color:#8cbee0}
+.lab-control-head output{font:800 17px ui-monospace,Consolas,monospace;color:#78f9e3}
+.lab-control input[type=range]{width:100%;accent-color:#55e9ee;cursor:ew-resize}
+.lab-control label{font:700 11px ui-monospace,Consolas,monospace;color:#8fc8dc;display:flex;align-items:center;gap:9px;white-space:nowrap}
+.lab-control label input{flex:1;min-width:85px}
+.lab-control select{color:#eefaff;border:1px solid #44708c;background:#0c2740;border-radius:6px;padding:6px 8px;outline-color:#8cf8ff;font:800 13px ui-monospace,Consolas,monospace}
+.lcg-controls{display:grid;grid-template-columns:1.6fr .9fr 1.5fr;gap:16px;margin-top:15px}
+.lcg-output{min-height:81px}
+.mapping-controls{display:flex;flex-direction:row;align-items:center;gap:15px}
+.mapping-controls label{flex:1}
+.mapping-controls output{color:#90fcf0;min-width:20px;font-size:14px}
+.mapping-controls button{white-space:nowrap;font-size:12px;padding:8px 13px}
+.mapping-controls input{max-width:160px}
+#map-top .cell,#map-bottom .cell{font:800 clamp(11px,1.2vw,18px) ui-monospace,Consolas,monospace;min-width:0;padding:10px 0}
+#map-stats .map-stat{min-width:0}
+.map-tooltip{margin-top:9px}
+.sim-verdict{font-size:12px;font-weight:700;letter-spacing:.01em;color:#9de9e3;padding:9px 12px;border-left:2px solid #35d6ed;background:#10273a;border-radius:3px 8px 8px 3px}
+#sim-n-label{min-width:78px;text-align:right}
+.bars .bar{transition:height .6s cubic-bezier(.17,.78,.21,1),box-shadow .4s}
+.maple-control{margin:10px 0}
+#maple-equation{font-size:clamp(15px,1.65vw,26px);white-space:nowrap}
+.rejection-lab{display:flex;align-items:center;justify-content:flex-start;gap:10px;flex-wrap:wrap;margin-top:14px;padding:12px;border:1px solid #305977;border-radius:8px;background:#0c1b2c}
+.rejection-output{min-width:88px;text-align:center;padding:9px 14px;color:#88fff1;font:800 19px ui-monospace,Consolas,monospace;border:1px solid #417387;border-radius:6px;background:#10283c}
+.rejection-output.reject{color:#ff9c9c;border-color:#9e515a;background:#3c1b2b}
+.rejection-output.accept{color:#9fffd3;border-color:#439d87;background:#12382e}
+.rejection-summary{color:#abc8dd;font:700 11px ui-monospace,Consolas,monospace;min-width:112px}
+.rejection-lab .btn{font-size:11px;padding:9px 12px}
+.bin-control{max-width:600px}
+#cmd-trigger{position:fixed;z-index:24;right:44px;bottom:44px;cursor:pointer;padding:10px 15px;color:#a9f4fa;background:#0d2237e6;border:1px solid #337c9a;border-radius:7px;font:800 12px ui-monospace,Consolas,monospace;box-shadow:0 8px 30px #0009}
+#cmd-trigger:hover{color:white;border-color:#70eefe;box-shadow:0 0 28px #21eeff39}
+.command-overlay{position:fixed;inset:0;z-index:80;background:#010a11c9;backdrop-filter:blur(12px);display:none;align-items:flex-start;justify-content:center;padding-top:min(18vh,165px)}
+.command-overlay.open{display:flex}
+.command-dialog{width:min(600px,calc(100% - 40px));background:#091c2b;border:1px solid #4484a8;border-radius:13px;box-shadow:0 30px 110px #000d,0 0 50px #43d9ff15;overflow:hidden}
+.command-title{font:800 12px ui-monospace,Consolas,monospace;color:#6ff2dc;padding:17px 20px;border-bottom:1px solid #2c536b;display:flex;justify-content:space-between}
+.command-title span{color:#708ca3}
+#command-search{display:block;width:100%;padding:21px 20px;border:0;outline:0;background:#081626;color:white;font:600 20px ui-monospace,Consolas,monospace}
+#command-results{max-height:45vh;overflow:auto}
+.command-row{padding:12px 20px;border-top:1px solid #1a354a;display:flex;gap:20px;align-items:center;color:#c3e0f2;font:700 14px ui-monospace,Consolas,monospace;cursor:pointer}
+.command-row:hover,.command-row.active{background:#1b4054;color:#a4fff2}
+.command-row .command-index{color:#7eb4d4;font-size:11px}
+.command-footer{padding:13px 18px;border-top:1px solid #2b4960;font:700 10px ui-monospace,monospace;color:#7ba6bd}
+#hud .brand:after{content:" / LAB V3";font-size:10px;color:#5ffaef}
+@media(max-width:1000px){.lcg-controls{grid-template-columns:1fr 1fr}.mapping-controls{flex-wrap:wrap}.mapping-controls label{min-width:180px}}
+@media(max-width:600px){.lab-control{padding:8px 9px}.mapping-controls input{max-width:80px}.rejection-lab{gap:5px}.rejection-lab .btn{font-size:10px}.command-dialog{width:calc(100% - 20px)}#cmd-trigger{right:17px;bottom:13px}}
+@media(max-height:720px){.lab-control{margin:6px 0;padding:7px 11px}.lcg-controls{gap:6px}.rejection-lab{margin-top:6px;padding:7px}}
 </style>
 </head>
-<body><canvas id="ambient" aria-hidden="true"></canvas><div id="cursor-light" aria-hidden="true"></div><div id="frame-corners" aria-hidden="true"></div><div id="terminal-status" aria-hidden="true">LIVE PREVIEW // PROBABILITY ENGINE v2.0</div>
+<body><canvas id="ambient" aria-hidden="true"></canvas><div id="cursor-light" aria-hidden="true"></div><div id="frame-corners" aria-hidden="true"></div><div id="terminal-status" aria-hidden="true">LIVE PREVIEW // PROBABILITY ENGINE v3.0</div><button id="cmd-trigger" type="button" aria-label="명령 팔레트 열기">⌘ NAV</button><div class="command-overlay" id="command-overlay" aria-hidden="true"><div class="command-dialog" role="dialog" aria-label="슬라이드 바로가기"><div class="command-title">>_ COMMAND PALETTE <span>ESC TO CLOSE</span></div><input id="command-search" autocomplete="off" placeholder="슬라이드 번호 또는 개념을 입력..."><div id="command-results"></div><div class="command-footer">K / ⌘K 열기 · ↑↓ 선택 · ENTER 이동 · ESC 닫기</div></div></div>
 <div id="hud"><div class="brand">&lt;/&gt; PROBABILITY.DEBUG</div><div>2022 REVISED · 확률과 통계 <span id="counter">01 / 09</span></div></div>
 <nav class="rail" aria-label="슬라이드 이동" id="rail"></nav>
 <div id="help"><kbd>←</kbd> <kbd>→</kbd> 이동 &nbsp;·&nbsp; <kbd>N</kbd> 발표자 노트 &nbsp;·&nbsp; <kbd>F</kbd> 전체화면</div>
@@ -148,23 +196,28 @@ h1 .accent,h2 .accent{background:linear-gradient(115deg,#9bfdff 5%,#52bcfd 70%,#
 <!-- 02 -->
 <section class="slide" data-topic="01 / PROBABILITY" data-note="[약 30초] Math.random은 0 이상 1 미만의 거의 균등한 실수 난수를 반환합니다. 0.1 미만이면 성공으로 정한 가상의 10% 추첨입니다. 독립인 10번의 시도에서 모두 실패할 확률은 0.9의 10제곱 약 34.87%입니다. 10회 모의실험 버튼을 눌러 재현합니다.">
   <div class="inner"><div class="kicker">01 / 확률의 개념 · 여사건 · 독립시행</div><h2>10%라면, 열 번 뽑아<br><span class="accent">한 번은 나와야 하나?</span></h2><div class="panels"><div class="panel"><div class="panel-head">가상의 10% 추첨 코드</div><pre class="code mono"><span class="c">// 실제 게임과 무관한 실험</span>
-<span class="fn">const</span> success = Math.random() &lt; <span class="n">0.1</span>;</pre><div class="pill-row" style="margin-top:15px"><button class="btn" id="draw10">▶ 10회 모의실험</button><span class="tag tag-gold" id="draw-msg">준비 완료</span></div><div class="draw-row" id="draw-results" aria-label="모의실험 당첨 여부"></div><p class="small muted" style="margin-top:11px" id="draw-count">버튼을 누르면 결과가 표시됩니다.</p></div><div class="panel"><div class="panel-head">확통: 여사건과 독립시행</div><p class="lede">10번 모두 <b class="red">실패</b>할 확률</p><div class="formula-wide" style="margin:18px 0"><div class="formula">(1 − 0.1)<sup>10</sup> = 0.9<sup>10</sup></div><div class="big-num gold" style="margin-top:9px">≈ 34.87%</div></div><div class="note">당첨 확률 10%는 <b>10번 중 반드시 1번</b>이라는 뜻이 아님. 각 시행이 독립일 때의 계산!</div></div></div></div>
+<span class="fn">const</span> success = Math.random() &lt; <span class="n" id="draw-prob-code">0.1</span>;</pre><div class="lab-control"><div class="lab-control-head"><strong>SUCCESS RATE</strong><output id="draw-p-label">10%</output></div><input type="range" id="draw-p" min="1" max="50" step="1" value="10" aria-label="가상 추첨의 당첨 확률"></div><div class="pill-row" style="margin-top:15px"><button class="btn" id="draw10">▶ 10회 모의실험</button><span class="tag tag-gold" id="draw-msg">준비 완료</span></div><div class="draw-row" id="draw-results" aria-label="모의실험 당첨 여부"></div><p class="small muted" style="margin-top:11px" id="draw-count">버튼을 누르면 결과가 표시됩니다.</p></div><div class="panel"><div class="panel-head">확통: 여사건과 독립시행</div><p class="lede">10번 모두 <b class="red">실패</b>할 확률</p><div class="formula-wide" style="margin:18px 0"><div class="formula" id="draw-formula">(1 − 0.1)<sup>10</sup> = 0.9<sup>10</sup></div><div class="big-num gold" id="draw-prob-0" style="margin-top:9px">≈ 34.87%</div></div><div class="note">당첨 확률 10%는 <b>10번 중 반드시 1번</b>이라는 뜻이 아님. 각 시행이 독립일 때의 계산!</div></div></div></div>
 </section>
 <!-- 03 -->
 <section class="slide" data-topic="02 / PRNG" data-note="[약 30초] PRNG는 의사난수 생성기입니다. LCG는 그중 하나로 다음 상태를 이전 상태로부터 계산합니다. m=100, a=21, c=1, X0=7을 사용합니다. 시드가 같으면 같은 수열이 나오며, 이것만으로 게임이 불공정하다는 의미는 아닙니다. % 연산은 여기서 상태를 범위 안에 유지하는 용도라는 점도 구분합니다.">
-  <div class="inner"><div class="kicker">02 / 컴퓨터공학적 배경 · PRNG</div><h2>컴퓨터는 랜덤을 <span class="accent">계산</span>한다.</h2><p class="lede">선형 합동 생성기(LCG): 이전 상태로 다음 숫자를 계산하는 PRNG의 한 종류</p><div class="panel"><div class="panel-head">Linear Congruential Generator</div><div class="formula" style="text-align:center;margin:5px 0 20px">X<sub>n+1</sub> = (aX<sub>n</sub> + c) mod m</div><div class="lcg-tokens" style="justify-content:center;flex-wrap:wrap"><span class="token">a = 21</span><span class="token">c = 1</span><span class="token">m = 100</span><span class="token">seed = 7</span></div><div style="margin-top:18px" class="lcg-output" id="lcg-output"></div><div class="pill-row" style="margin-top:18px"><button class="btn" id="lcg-repeat">↻ 같은 시드로 다시 생성</button><span class="tag" id="lcg-status">SEED = 7</span></div></div><div class="note"><b>같은 시드 + 같은 알고리즘 → 같은 수열.</b> 그러나 결정적으로 생성된다고 해서 곧바로 ‘확률 조작’은 아니다.</div></div>
+  <div class="inner"><div class="kicker">02 / 컴퓨터공학적 배경 · PRNG</div><h2>컴퓨터는 랜덤을 <span class="accent">계산</span>한다.</h2><p class="lede">선형 합동 생성기(LCG): 이전 상태로 다음 숫자를 계산하는 PRNG의 한 종류</p><div class="panel"><div class="panel-head">Linear Congruential Generator</div><div class="formula" style="text-align:center;margin:5px 0 20px">X<sub>n+1</sub> = (aX<sub>n</sub> + c) mod m</div><div class="lcg-tokens" style="justify-content:center;flex-wrap:wrap"><span class="token">a = <b id="lcg-a-out">21</b></span><span class="token">c = <b id="lcg-c-out">1</b></span><span class="token">m = 100</span><span class="token">seed = <b id="lcg-seed-out">7</b></span></div>
+<div class="lab-control lcg-controls">
+<label>SEED <input id="lcg-seed" type="range" min="0" max="99" step="1" value="7"></label>
+<label>MULTIPLIER <select id="lcg-a" aria-label="LCG 곱셈 계수"><option value="21">21</option><option value="5">5</option><option value="9">9</option><option value="41">41</option></select></label>
+<label>INCREMENT <input id="lcg-c" type="range" min="0" max="9" step="1" value="1"></label>
+</div><div style="margin-top:18px" class="lcg-output" id="lcg-output"></div><div class="pill-row" style="margin-top:18px"><button class="btn" id="lcg-repeat">▶ 같은 시드로 재생</button><button class="btn secondary" id="lcg-next">+ 다음 숫자</button><button class="btn secondary" id="lcg-new-seed">⟳ 랜덤 시드</button><span class="tag" id="lcg-status">SEED = 7</span></div></div><div class="note"><b>같은 시드 + 같은 알고리즘 → 같은 수열.</b> 그러나 결정적으로 생성된다고 해서 곧바로 ‘확률 조작’은 아니다.</div></div>
 </section>
 <!-- 04 -->
 <section class="slide" data-topic="03 / COUNTING" data-note="[약 45초] 0부터 8까지 9개 숫자가 같은 확률로 나온다고 가정합시다. 6으로 나눈 나머지는 0,1,2가 두 번씩, 3,4,5가 한 번씩 대응됩니다. 따라서 P(R=0)=2/9, P(R=5)=1/9로 다릅니다. 표본공간에서 결과에 대응하는 경우의 수가 서로 다르기 때문입니다. 여기서 LCG의 모듈로 연산 자체와 모듈로 편향을 혼동하지 않습니다.">
-  <div class="inner"><div class="kicker">03 / 1단원 경우의 수 + 2단원 수학적 확률</div><h2>평등하게 뽑았는데…<br><span class="gold">나머지는 왜 불평등함?</span></h2><div class="panel"><div class="panel-head">0~8의 균등한 원본 숫자 → % 6</div><div class="mapping" id="map-top"></div><div class="mapping-arrow mono">↓　x % 6</div><div class="mapping" id="map-bottom"></div><div style="height:12px"></div><div class="mapping-stats" id="map-stats"></div><div class="map-tooltip" id="map-tooltip" aria-live="polite">숫자 위에 커서를 올려 결과를 추적하세요.</div></div><div class="two-stats"><div class="stat"><div class="stat-label">P(나머지 = 0) = 2가지 / 9가지</div><div class="stat-value gold">2/9 = 22.22%</div></div><div class="stat"><div class="stat-label">P(나머지 = 5) = 1가지 / 9가지</div><div class="stat-value">1/9 = 11.11%</div></div></div><div class="note">모든 원본 숫자의 확률은 같아도, <b>변환 결과의 경우의 수</b>가 다르면 확률도 달라진다. 이것이 모듈로 편향(Modulo Bias).</div></div>
+  <div class="inner"><div class="kicker">03 / 1단원 경우의 수 + 2단원 수학적 확률</div><h2>평등하게 뽑았는데…<br><span class="gold">나머지는 왜 불평등함?</span></h2><div class="panel"><div class="panel-head">균등한 정수의 나머지 변환 · 값을 바꿔 보세요</div><div class="lab-control mapping-controls"><label>원본 경우의 수 <input type="range" id="map-n" min="7" max="18" step="1" value="9"> <output id="map-n-out">9</output></label><label>나누는 수 <input type="range" id="map-m" min="2" max="9" step="1" value="6"> <output id="map-m-out">6</output></label><button class="btn secondary" id="map-reset" type="button">↺ 9개 / %6</button></div><div class="mapping" id="map-top"></div><div class="mapping-arrow mono" id="map-operation">↓ x % 6</div><div class="mapping" id="map-bottom"></div><div style="height:12px"></div><div class="mapping-stats" id="map-stats"></div><div class="map-tooltip" id="map-tooltip" aria-live="polite">숫자 위에 커서를 올려 결과를 추적하세요.</div></div><div class="two-stats"><div class="stat"><div class="stat-label"><span id="map-label-a">P(나머지 = 0) = 2가지 / 9가지</span></div><div class="stat-value gold" id="map-value-a">2/9 = 22.22%</div></div><div class="stat"><div class="stat-label"><span id="map-label-b">P(나머지 = 5) = 1가지 / 9가지</span></div><div class="stat-value" id="map-value-b">1/9 = 11.11%</div></div></div><div class="note">모든 원본 숫자의 확률은 같아도, <b>변환 결과의 경우의 수</b>가 다르면 확률도 달라진다. 이것이 모듈로 편향(Modulo Bias).</div></div>
 </section>
 <!-- 05 -->
 <section class="slide" data-topic="04 / SIMULATION" data-note="[약 35초] 버튼을 눌러 각 방법으로 6,000개를 추출해 봅니다. 오른쪽은 6·7·8을 버리고 재추출하는 기각 샘플링입니다. 막대그래프는 실험적 상대도수이고, 22.22%·11.11%와 16.67%는 이론적 확률입니다. 시행이 많아도 틀린 알고리즘의 편향은 사라지지 않습니다.">
-  <div class="inner"><div class="kicker">04 / 이론적 확률 ↔ 실험적 상대도수</div><h2>그러면 직접 <span class="accent">6,000번</span> 돌려보자.</h2><div class="chart-wrap"><div class="chart-panel"><div class="panel-head">BUGGY · 단순 % 6</div><div class="bars" id="biased-bars"></div><div class="legend"><span>0·1·2 이론값 22.22%</span><span>3·4·5 이론값 11.11%</span></div></div><div class="chart-panel"><div class="panel-head">FIXED · 기각 샘플링</div><div class="bars" id="fixed-bars"></div><div class="legend"><span>모든 값의 이론값 16.67%</span><span>0~5 균등</span></div></div></div><div class="sim-control"><span>RUNS / 샘플 수</span><input id="sim-n" aria-label="시뮬레이션 샘플 수" type="range" min="100" max="20000" step="100" value="6000"><output id="sim-n-label">6,000</output></div><div class="pill-row"><button class="btn" id="run-experiment">▶ 6,000회씩 다시 실행</button><span class="tag tag-green" id="experiment-status">시뮬레이션 준비됨</span></div><div class="note">그래프 = <b>실험 결과</b>. 확률 공식 = <b>이론 결과</b>. “많이 뽑으면 해결된다”는 말은 <span class="gold strong">편향된 코드에는 해당하지 않는다.</span></div></div>
+  <div class="inner"><div class="kicker">04 / 이론적 확률 ↔ 실험적 상대도수</div><h2>그러면 직접 <span class="accent"><span id="sim-title-count">6,000</span>번</span> 돌려보자.</h2><div class="chart-wrap"><div class="chart-panel"><div class="panel-head">BUGGY · 단순 % 6</div><div class="bars" id="biased-bars"></div><div class="legend"><span>0·1·2 이론값 22.22%</span><span>3·4·5 이론값 11.11%</span></div></div><div class="chart-panel"><div class="panel-head">FIXED · 기각 샘플링</div><div class="bars" id="fixed-bars"></div><div class="legend"><span>모든 값의 이론값 16.67%</span><span>0~5 균등</span></div></div></div><div class="sim-control"><span>RUNS / 샘플 수</span><input id="sim-n" aria-label="시뮬레이션 샘플 수" type="range" min="100" max="20000" step="100" value="6000"><output id="sim-n-label">6,000</output></div><div class="pill-row"><button class="btn" id="run-experiment">▶ 모의실험 다시 실행</button><span class="tag tag-green" id="experiment-status">시뮬레이션 준비됨</span></div><div class="sim-verdict mono" id="sim-verdict">실험 결과와 이론 확률을 비교해 보세요.</div><div class="note">그래프 = <b>실험 결과</b>. 확률 공식 = <b>이론 결과</b>. “많이 뽑으면 해결된다”는 말은 <span class="gold strong">편향된 코드에는 해당하지 않는다.</span></div></div>
 </section>
 <!-- 06 -->
 <section class="slide" data-topic="05 / CASE STUDY" data-note="[약 45초] 2026년 메이플스토리 아이템 드롭률 오류와 연관된 모듈로 편향의 계산 모형입니다. 2^32는 4,294,967,296개 가능 정수입니다. 10억으로 나눈 나머지를 만들면 앞 294,967,296개 나머지는 원본에서 5번씩, 나머지는 4번씩 대응됩니다. 목표 구간 0~9,999,999를 1%로 잡으면 5×천만 / 2^32=약 1.16415%입니다. 4회 대비 5회는 25% 많지만 목표 1% 대비 증가는 약 16.4%입니다. 구체적인 게임 전체 로직을 복원한 것이 아니라 원리 설명을 위한 단순화 모델입니다.">
-  <div class="inner"><div class="kicker">05 / 실제 사례와 수학적 모델</div><h2>그런데 이게 <span class="gold">실제 게임</span>에서도?</h2><div class="panels"><div class="panel"><div class="panel-head">32비트 정수 → 10억 개의 나머지</div><div class="big-calc">2<sup>32</sup> = <span class="accent">4,294,967,296</span></div><div class="small muted" style="margin:8px 0 15px">4 × 1,000,000,000 + 294,967,296</div><div class="range-bars"><div class="major"></div><div class="remainder"></div></div><div class="range-labels"><span>10억 × 4묶음</span><span class="gold">나머지 2억 9,496만</span></div><table class="mini-table" style="margin-top:13px"><tr><th>나머지 값의 범위</th><th>대응 횟수</th></tr><tr><td>0 ~ 294,967,295</td><td class="highlight-line">각 5회</td></tr><tr><td>294,967,296 ~ 999,999,999</td><td>각 4회</td></tr></table></div><div class="panel"><div class="panel-head">확통: 1% 당첨 구간의 실제 확률</div><div class="small muted">가정: 원본 정수 2<sup>32</sup>개가 균등하며 0~9,999,999를 당첨으로 설정</div><div class="math-card" style="margin-top:14px"><div class="formula formula-sm">P(A) = (5 × 10,000,000) / 2<sup>32</sup></div></div><div class="two-stats" style="margin-top:14px"><div class="stat"><div class="stat-label">의도한 확률</div><div class="stat-value">1.000%</div></div><div class="stat"><div class="stat-label">계산된 확률</div><div class="stat-value gold">1.164%</div></div></div><div class="note" style="margin-top:13px">상대적으로 <b class="gold">약 16.4% 증가</b>. 5 대 4의 비율인 25%와 구분!</div></div></div><p class="tiny muted">※ 2026년 메이플스토리 드롭률 오류를 설명하는 모듈로 편향의 단순화 수학 모델. 실제 게임의 모든 로직을 재현한 것은 아님.</p></div>
+  <div class="inner"><div class="kicker">05 / 실제 사례와 수학적 모델</div><h2>그런데 이게 <span class="gold">실제 게임</span>에서도?</h2><div class="panels"><div class="panel"><div class="panel-head">32비트 정수 → 10억 개의 나머지</div><div class="big-calc">2<sup>32</sup> = <span class="accent">4,294,967,296</span></div><div class="small muted" style="margin:8px 0 15px">4 × 1,000,000,000 + 294,967,296</div><div class="range-bars"><div class="major"></div><div class="remainder"></div></div><div class="range-labels"><span>10억 × 4묶음</span><span class="gold">나머지 2억 9,496만</span></div><table class="mini-table" style="margin-top:13px"><tr><th>나머지 값의 범위</th><th>대응 횟수</th></tr><tr><td>0 ~ 294,967,295</td><td class="highlight-line">각 5회</td></tr><tr><td>294,967,296 ~ 999,999,999</td><td>각 4회</td></tr></table></div><div class="panel"><div class="panel-head">확통: 당첨 기준을 바꾸면 실제 확률도?</div><div class="lab-control maple-control"><div class="lab-control-head"><strong>표기 당첨 확률 설정</strong><output id="maple-target-out">1.0%</output></div><input id="maple-target" type="range" min="0.5" max="20" step="0.5" value="1" aria-label="가상 표기 당첨 확률"></div><div class="small muted">가정: 원본 정수 2<sup>32</sup>개가 균등하고, 낮은 나머지값을 당첨으로 설정</div><div class="math-card" style="margin-top:14px"><div class="formula formula-sm" id="maple-equation">P(A) = (5 × 10,000,000) / 2<sup>32</sup></div></div><div class="two-stats" style="margin-top:14px"><div class="stat"><div class="stat-label">의도한 확률</div><div class="stat-value" id="maple-intended">1.000%</div></div><div class="stat"><div class="stat-label">계산된 확률</div><div class="stat-value gold" id="maple-actual">1.164%</div></div></div><div class="note" style="margin-top:13px">상대적으로 <b class="gold" id="maple-relative">약 16.4% 증가</b>. 5 대 4의 비율인 25%와 구분!</div></div></div><p class="tiny muted">※ 2026년 메이플스토리 드롭률 오류를 설명하는 모듈로 편향의 단순화 수학 모델. 실제 게임의 모든 로직을 재현한 것은 아님.</p></div>
 </section>
 <!-- 07 -->
 <section class="slide" data-topic="06 / CONDITIONAL PROBABILITY" data-note="[약 35초] 0~8 중 균등한 x를 뽑고 x≥6이면 버리고 다시 뽑습니다. 채택 조건 B={0,1,2,3,4,5}입니다. 이때 P(나머지 0 | B)=(1/9)/(6/9)=1/6이며 1~5도 같습니다. 즉 조건부확률을 이용해 기각 샘플링이 왜 균등 분포를 만드는지 증명할 수 있습니다.">
@@ -172,11 +225,11 @@ h1 .accent,h2 .accent{background:linear-gradient(115deg,#9bfdff 5%,#52bcfd 70%,#
 do {
   x = Math.floor(Math.random() * 9);
 } while (x &gt;= 6);  // 6,7,8 재추출
-return x;          // 0~5</pre><div class="pill-row" style="margin-top:15px"><span class="tag tag-green">채택 0~5</span><span class="tag tag-gold">기각 6~8</span></div><p class="lede" style="margin-top:15px">6·7·8이 나오면? <b class="green">다시 뽑으면 됨.</b></p></div><div class="panel"><div class="panel-head">확통: 채택되었다는 조건 아래의 확률</div><p class="small muted">A = 나머지가 0인 사건, B = 원본이 0~5인 사건</p><div class="math-card" style="margin-top:13px"><div class="formula formula-sm">P(A | B) = P(A∩B) / P(B)</div><div class="formula formula-sm gold" style="margin-top:14px">= (1/9) ÷ (6/9) = 1/6</div></div><div class="note" style="margin-top:14px">1~5도 마찬가지로 <b>1/6</b>. 조건부확률로 수학적 해결 원리를 확인!</div></div></div></div>
+return x;          // 0~5</pre><div class="pill-row" style="margin-top:15px"><span class="tag tag-green">채택 0~5</span><span class="tag tag-gold">기각 6~8</span></div><div class="rejection-lab"><div class="rejection-output" id="rejection-result">READY</div><div class="rejection-summary" id="rejection-summary">채택 0 / 기각 0</div><button class="btn" id="rejection-draw">▶ 난수 1개 뽑기</button><button class="btn secondary" id="rejection-loop">↻ 채택될 때까지</button></div><p class="lede" style="margin-top:15px">6·7·8이 나오면? <b class="green">다시 뽑으면 됨.</b></p></div><div class="panel"><div class="panel-head">확통: 채택되었다는 조건 아래의 확률</div><p class="small muted">A = 나머지가 0인 사건, B = 원본이 0~5인 사건</p><div class="math-card" style="margin-top:13px"><div class="formula formula-sm">P(A | B) = P(A∩B) / P(B)</div><div class="formula formula-sm gold" style="margin-top:14px">= (1/9) ÷ (6/9) = 1/6</div></div><div class="note" style="margin-top:14px">1~5도 마찬가지로 <b>1/6</b>. 조건부확률로 수학적 해결 원리를 확인!</div></div></div></div>
 </section>
 <!-- 08 -->
 <section class="slide" data-topic="07 / BINOMIAL" data-note="[약 35초] 이제 시행이 서로 독립이라고 가정한 이상적인 모델을 비교합니다. 10,000회에서 당첨 확률 1%면 X~B(10000,.01), 기댓값 100입니다. 편향된 확률 0.01164153이면 Y~B(10000,.01164153), 기댓값 약 116.42입니다. 실제 시뮬레이션 결과는 매번 조금 다릅니다. 같은 PRNG라는 이유만으로 독립이 자동 보장되지 않음을 주의해 주세요.">
-  <div class="inner"><div class="kicker">07 / 3단원 확률변수 · 이항분포 · 기댓값</div><h2>확률 0.164%p 차이.<br><span class="accent">10,000번이면 얼마나?</span></h2><div class="expected-grid"><div class="exp-card"><div class="panel-head">INTENDED / 1%</div><div class="formula formula-sm">X ~ B(10000, 0.01)</div><div class="small muted" style="margin-top:10px">E(X) = np = 10000 × 0.01</div><div class="big-num green" style="margin-top:8px">100회</div><div class="result">모의실험 결과 <b id="bin-normal">—</b> 회</div></div><div class="exp-card alt"><div class="panel-head">BIASED / 약 1.164%</div><div class="formula formula-sm">Y ~ B(10000, 0.0116415)</div><div class="small muted" style="margin-top:10px">E(Y) = np ≈ 116.4</div><div class="big-num gold" style="margin-top:8px">116.4회</div><div class="result">모의실험 결과 <b id="bin-biased">—</b> 회</div></div></div><div class="pill-row"><button class="btn" id="run-binomial">▶ 10,000회씩 모의실험</button><span class="tag">독립인 베르누이 시행을 가정</span></div><div class="note">기댓값은 <b>반드시 그만큼 나온다는 뜻이 아니라</b> 반복 실험의 평균적 수준. 여기서는 <b>독립시행이라는 별도 가정</b>이 필요하다.</div></div>
+  <div class="inner"><div class="kicker">07 / 3단원 확률변수 · 이항분포 · 기댓값</div><h2>확률 0.164%p 차이.<br><span class="accent">10,000번이면 얼마나?</span></h2><div class="expected-grid"><div class="exp-card"><div class="panel-head">INTENDED / 1%</div><div class="formula formula-sm" id="bin-model-normal">X ~ B(10000, 0.01)</div><div class="small muted" id="bin-formula-normal" style="margin-top:10px">E(X) = np = 10000 × 0.01</div><div class="big-num green" id="bin-expected-normal" style="margin-top:8px">100회</div><div class="result">모의실험 결과 <b id="bin-normal">—</b> 회</div></div><div class="exp-card alt"><div class="panel-head">BIASED / 약 1.164%</div><div class="formula formula-sm" id="bin-model-biased">Y ~ B(10000, 0.0116415)</div><div class="small muted" id="bin-formula-biased" style="margin-top:10px">E(Y) = np ≈ 116.4</div><div class="big-num gold" id="bin-expected-biased" style="margin-top:8px">116.4회</div><div class="result">모의실험 결과 <b id="bin-biased">—</b> 회</div></div></div><div class="lab-control bin-control"><div class="lab-control-head"><strong>독립시행 횟수 n</strong><output id="bin-n-out">10,000</output></div><input id="bin-n" type="range" min="1000" max="20000" step="1000" value="10000"></div><div class="pill-row"><button class="btn" id="run-binomial">▶ 한 세트 실행</button><button class="btn secondary" id="bin-avg100">▶ 100세트 평균 비교</button><span class="tag">독립인 베르누이 시행을 가정</span></div><div class="sim-verdict mono" id="bin-avg-result">기댓값과 실제 결과를 비교하세요.</div><div class="note">기댓값은 <b>반드시 그만큼 나온다는 뜻이 아니라</b> 반복 실험의 평균적 수준. 여기서는 <b>독립시행이라는 별도 가정</b>이 필요하다.</div></div>
 </section>
 <!-- 09 -->
 <section class="slide" data-topic="08 / CONCLUSION" data-note="[약 20초] 결론은 편향의 출처를 수학으로 검증할 수 있다는 것입니다. 경우의 수로 왜 오류가 나는지, 조건부확률로 왜 기각 샘플링이 해결하는지, 이항분포로 반복 시행의 차이가 어떤 의미인지 확인했습니다. 실제 블루 아카이브의 확률 조작을 주장하는 발표가 아니라 가상의 추첨 시스템을 실험한 발표임을 덧붙입니다. 출처는 하단에 실어 두었습니다.">
@@ -193,35 +246,174 @@ const observer=new IntersectionObserver(entries=>{let best=entries.filter(x=>x.i
 deck.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)<4)return;if(e.target.closest('#notes'))return;e.preventDefault();const now=performance.now();if(now-wheelLock<600)return;wheelLock=now;go(current+(e.deltaY>0?1:-1))},{passive:false});
 window.addEventListener('keydown',e=>{const tag=document.activeElement?.tagName;if(tag==='INPUT'||tag==='TEXTAREA')return;if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(e.key)){if(e.key==='Enter'&&tag==='BUTTON')return;e.preventDefault();go(current+1)}else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(current-1)}else if(e.key==='Home'){e.preventDefault();go(0)}else if(e.key==='End'){e.preventDefault();go(slides.length-1)}else if(e.key.toLowerCase()==='n'){notes.classList.toggle('visible')}else if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen?.().catch(()=>{});else document.exitFullscreen?.().catch(()=>{})}});
 update(0);
-// 02: independent Bernoulli example (educational, fictional; no purchases or prizes)
-const drawResults=document.querySelector('#draw-results');function showDraw(arr){drawResults.replaceChildren();for(const yes of arr){const d=document.createElement('div');d.className='draw-dot '+(yes===null?'':yes?'win':'loss');d.textContent=yes===null?'·':yes?'★':'×';d.setAttribute('aria-label',yes===null?'실험 대기':yes?'당첨':'실패');drawResults.append(d)}document.querySelector('#draw-count').textContent=`10회 중 ${arr.filter(Boolean).length}회 당첨 · 시행마다 결과가 달라집니다.`;document.querySelector('#draw-msg').textContent=`당첨 ${arr.filter(Boolean).length}회`;if(arr.every(x=>x===null)){document.querySelector('#draw-count').textContent='버튼을 누르면 결과가 표시됩니다.';document.querySelector('#draw-msg').textContent='준비 완료'}}showDraw(Array(10).fill(null));document.querySelector('#draw10').addEventListener('click',()=>showDraw(Array.from({length:10},()=>Math.random()<.1)));
-// 03: LCG seed repeat
-function lcg(seed,n=8){const out=[seed];let x=seed;for(let i=0;i<n-1;i++){x=(21*x+1)%100;out.push(x)}return out}function renderLCG(){const root=document.querySelector('#lcg-output');root.replaceChildren();for(const [i,n] of lcg(7).entries()){const d=document.createElement('div');d.className='lcg-num'+(n>=90?' hit':'');d.innerHTML=`<div style="font-size:10px;color:#9cb4c9;margin-bottom:5px">${i===0?'SEED':'X'+i}</div>${n}`;root.append(d)}}renderLCG();document.querySelector('#lcg-repeat').addEventListener('click',()=>{renderLCG();const s=document.querySelector('#lcg-status');s.textContent='같은 수열 재생성 ✓';setTimeout(()=>s.textContent='SEED = 7',1600)});
-// 04: mapping (theory, exact)
-const top=document.querySelector('#map-top'),bot=document.querySelector('#map-bottom'),stats=document.querySelector('#map-stats');for(let x=0;x<9;x++){const a=document.createElement('div');a.className='cell top';a.textContent=x;top.append(a);const b=document.createElement('div');b.className='cell bottom'+(x>=6?' extra':'');b.textContent=x%6;bot.append(b)}for(let x=0;x<6;x++){const b=document.createElement('div');b.className='map-stat'+(x<3?' extra':'');b.innerHTML=`<b>${x}</b><span>${x<3?2:1}/9</span>`;stats.append(b)}
+// 02: The probability of at least one success changes with the control.
+const drawResults=document.querySelector('#draw-results');
+const drawP=document.querySelector('#draw-p');
+const drawRate=()=>Number(drawP.value)/100;
+function refreshBernoulli(){
+  const p=drawRate();
+  document.querySelector('#draw-p-label').textContent=(p*100).toFixed(0)+'%';
+  document.querySelector('#draw-prob-code').textContent=p.toFixed(2);
+  document.querySelector('#draw-formula').innerHTML='(1 − '+p.toFixed(2)+')<sup>10</sup> = '+(1-p).toFixed(2)+'<sup>10</sup>';
+  document.querySelector('#draw-prob-0').textContent='≈ '+(100*Math.pow(1-p,10)).toFixed(2)+'%';
+}
+function showDraw(arr){
+ drawResults.replaceChildren();
+ for(const yes of arr){const d=document.createElement('div');d.className='draw-dot '+(yes===null?'':yes?'win':'loss');d.textContent=yes===null?'·':yes?'★':'×';d.setAttribute('aria-label',yes===null?'실험 대기':yes?'당첨':'실패');drawResults.append(d)}
+ const count=arr.filter(Boolean).length;
+ document.querySelector('#draw-count').textContent=arr.every(x=>x===null)?'버튼을 누르면 결과가 표시됩니다.':'10회 중 '+count+'회 당첨 · 설정된 확률은 '+Number(drawP.value)+'%';
+ document.querySelector('#draw-msg').textContent=arr.every(x=>x===null)?'준비 완료':count+'회 당첨';
+}
+drawP.addEventListener('input',()=>{refreshBernoulli();showDraw(Array(10).fill(null))});
+refreshBernoulli();showDraw(Array(10).fill(null));
+document.querySelector('#draw10').addEventListener('click',()=>showDraw(Array.from({length:10},()=>Math.random()<drawRate())));
+// 03: Adjust seed and LCG multiplier, step through a reproducible sequence.
+const lcgSeed=document.querySelector('#lcg-seed'),lcgA=document.querySelector('#lcg-a'),lcgC=document.querySelector('#lcg-c');
+let lcgShown=8,lcgTimer=null;
+function lcg(seed,n=8,a=21,c=1){const out=[seed];let x=seed;for(let i=0;i<n-1;i++){x=(a*x+c)%100;out.push(x)}return out}
+function stopLCG(){if(lcgTimer!==null){clearInterval(lcgTimer);lcgTimer=null}}
+function renderLCG(){
+ let seed=Number(lcgSeed.value),a=Number(lcgA.value),c=Number(lcgC.value);
+ document.querySelector('#lcg-seed-out').textContent=seed;
+ document.querySelector('#lcg-a-out').textContent=a;
+ document.querySelector('#lcg-c-out').textContent=c;
+ const vals=lcg(seed,lcgShown,a,c),root=document.querySelector('#lcg-output');root.replaceChildren();
+ for(let i=0;i<8;i++){
+ const d=document.createElement('div');d.className='lcg-num'+(vals[i]>=90?' hit':'');
+ if(i>=vals.length){d.innerHTML='<div style="font-size:10px;color:#526d81;margin-bottom:5px">X'+i+'</div><span style="color:#4f6474">··</span>';}
+ else d.innerHTML='<div style="font-size:10px;color:#9cb4c9;margin-bottom:5px">'+(i===0?'SEED':'X'+i)+'</div>'+vals[i];
+ root.append(d)}
+ document.querySelector('#lcg-status').textContent='SEED '+seed+' · '+lcgShown+'/8';
+}
+for(const x of [lcgSeed,lcgA,lcgC]) x.addEventListener('input',()=>{stopLCG();lcgShown=8;renderLCG()});
+document.querySelector('#lcg-next').addEventListener('click',()=>{stopLCG();lcgShown=lcgShown===8?1:lcgShown+1;renderLCG()});
+document.querySelector('#lcg-new-seed').addEventListener('click',()=>{stopLCG();lcgSeed.value=Math.floor(Math.random()*100);lcgShown=8;renderLCG()});
+document.querySelector('#lcg-repeat').addEventListener('click',()=>{stopLCG();lcgShown=1;renderLCG();lcgTimer=setInterval(()=>{lcgShown++;renderLCG();if(lcgShown>=8)stopLCG()},260)});
+renderLCG();
+// 04: Interactive exact counting argument for uniform source values.
+const top=document.querySelector('#map-top'),bot=document.querySelector('#map-bottom'),stats=document.querySelector('#map-stats');
+const mapN=document.querySelector('#map-n'),mapM=document.querySelector('#map-m');
+let sourceN=9,modM=6;
+function focusMapping(n){
+ const result=n%modM,preimages=Array.from({length:sourceN},(_,j)=>j).filter(j=>j%modM===result);
+ [...top.children].forEach((e,i)=>e.classList.toggle('selected',i===n));
+ [...bot.children].forEach((e,i)=>e.classList.toggle('selected',i===n));
+ [...stats.children].forEach((e,i)=>e.classList.toggle('selected',i===result));
+ document.querySelector('#map-tooltip').textContent=n+' % '+modM+' = '+result+'  // 나머지 '+result+'에 대응하는 수: '+preimages.join(', ')+' ('+preimages.length+'가지)';
+}
+function updateMapping(){
+ sourceN=Number(mapN.value);modM=Number(mapM.value);
+ document.querySelector('#map-n-out').textContent=sourceN;
+ document.querySelector('#map-m-out').textContent=modM;
+ document.querySelector('#map-operation').textContent='↓　x % '+modM;
+ top.replaceChildren();bot.replaceChildren();stats.replaceChildren();
+ top.style.gridTemplateColumns='repeat('+sourceN+',minmax(0,1fr))';
+ bot.style.gridTemplateColumns='repeat('+sourceN+',minmax(0,1fr))';
+ stats.style.gridTemplateColumns='repeat('+modM+',minmax(0,1fr))';
+ const counts=Array.from({length:modM},(_,j)=>Math.floor((sourceN-1-j)/modM)+1);
+ for(let x=0;x<sourceN;x++){
+ const a=document.createElement('div');a.className='cell top';a.textContent=x;a.tabIndex=0;a.setAttribute('role','button');a.setAttribute('aria-label',x+'의 나머지 확인');a.addEventListener('pointerenter',()=>focusMapping(x));a.addEventListener('focus',()=>focusMapping(x));a.addEventListener('click',()=>focusMapping(x));top.append(a);
+ const b=document.createElement('div');b.className='cell bottom'+(counts[x%modM]>Math.floor(sourceN/modM)?' extra':'');b.textContent=x%modM;bot.append(b)
+ }
+ for(let x=0;x<modM;x++){const d=document.createElement('div');d.className='map-stat'+(counts[x]>Math.floor(sourceN/modM)?' extra':'');d.innerHTML='<b>'+x+'</b><span>'+counts[x]+'/'+sourceN+'</span>';stats.append(d)}
+ const last=modM-1;
+ document.querySelector('#map-label-a').textContent='P(나머지 = 0) = '+counts[0]+'가지 / '+sourceN+'가지';
+ document.querySelector('#map-label-b').textContent='P(나머지 = '+last+') = '+counts[last]+'가지 / '+sourceN+'가지';
+ document.querySelector('#map-value-a').textContent=counts[0]+'/'+sourceN+' = '+(counts[0]/sourceN*100).toFixed(2)+'%';
+ document.querySelector('#map-value-b').textContent=counts[last]+'/'+sourceN+' = '+(counts[last]/sourceN*100).toFixed(2)+'%';
+ document.querySelector('#map-tooltip').textContent=sourceN+'개를 '+modM+'개 칸에 배정 → 각 경우의 수가 같아야 균등합니다.';
+}
+for(const x of [mapN,mapM])x.addEventListener('input',updateMapping);
+document.querySelector('#map-reset').addEventListener('click',()=>{mapN.value=9;mapM.value=6;updateMapping()});
+updateMapping();
 // 05: histogram comparison (empirical)
-function sixBarRoot(rootId,fix){const root=document.querySelector('#'+rootId);root.replaceChildren();const refs=[];for(let i=0;i<6;i++){const column=document.createElement('div');column.className='barcol';const pct=document.createElement('div');pct.className='barpct';pct.textContent='—';const bar=document.createElement('div');bar.className='bar'+(fix?' fixed':'');bar.style.height='3%';const idx=document.createElement('div');idx.className='baridx';idx.textContent=i;column.append(pct,bar,idx);root.append(column);refs.push({bar,pct})}return refs}const refsBiased=sixBarRoot('biased-bars',false),refsFixed=sixBarRoot('fixed-bars',true);let experimentCount=0;function experiment(){const N=Number(document.querySelector("#sim-n").value);const biased=Array(6).fill(0),fixed=Array(6).fill(0);for(let i=0;i<N;i++){const x=Math.floor(Math.random()*9);biased[x%6]++;let y;do{y=Math.floor(Math.random()*9)}while(y>=6);fixed[y]++}for(const [refs,counts] of [[refsBiased,biased],[refsFixed,fixed]])for(let i=0;i<6;i++){const p=counts[i]*100/N;refs[i].bar.style.height=`${(p/27)*100}%`;refs[i].pct.textContent=p.toFixed(1)+'%'}document.querySelector('#experiment-status').textContent=`실험 #${++experimentCount} · 각 ${N.toLocaleString("ko-KR")}회`}document.querySelector('#run-experiment').addEventListener('click',experiment);experiment();
-// 08: binomial model under independent trials
-const biasedP=50000000/4294967296;function experimentBinomial(){let a=0,b=0;for(let i=0;i<10000;i++){if(Math.random()<.01)a++;if(Math.random()<biasedP)b++}document.querySelector('#bin-normal').textContent=a.toLocaleString('ko-KR');document.querySelector('#bin-biased').textContent=b.toLocaleString('ko-KR')}document.querySelector('#run-binomial').addEventListener('click',experimentBinomial);experimentBinomial();
-
+function sixBarRoot(rootId,fix){const root=document.querySelector('#'+rootId);root.replaceChildren();const refs=[];for(let i=0;i<6;i++){const column=document.createElement('div');column.className='barcol';const pct=document.createElement('div');pct.className='barpct';pct.textContent='—';const bar=document.createElement('div');bar.className='bar'+(fix?' fixed':'');bar.style.height='3%';const idx=document.createElement('div');idx.className='baridx';idx.textContent=i;column.append(pct,bar,idx);root.append(column);refs.push({bar,pct})}return refs}const refsBiased=sixBarRoot('biased-bars',false),refsFixed=sixBarRoot('fixed-bars',true);let experimentCount=0;function experiment(){const N=Number(document.querySelector("#sim-n").value);const biased=Array(6).fill(0),fixed=Array(6).fill(0);for(let i=0;i<N;i++){const x=Math.floor(Math.random()*9);biased[x%6]++;let y;do{y=Math.floor(Math.random()*9)}while(y>=6);fixed[y]++}for(const [refs,counts] of [[refsBiased,biased],[refsFixed,fixed]])for(let i=0;i<6;i++){const p=counts[i]*100/N;refs[i].bar.style.height=`${(p/27)*100}%`;refs[i].pct.textContent=p.toFixed(1)+'%'}document.querySelector('#experiment-status').textContent=`실험 #${++experimentCount} · 각 ${N.toLocaleString("ko-KR")}회`;document.querySelector('#sim-verdict').textContent=`BUGGY P(0) = ${(biased[0]/N*100).toFixed(2)}% · FIXED P(0) = ${(fixed[0]/N*100).toFixed(2)}% · 이론값 22.22% vs 16.67%`}document.querySelector('#run-experiment').addEventListener('click',experiment);experiment();
+// 06: Actual probability under the 32-bit modulo model, for target rates below the remainder fraction.
+const mapleTarget=document.querySelector('#maple-target'),sourceSize=2**32;
+function updateMaple(){
+ const p=Number(mapleTarget.value),threshold=Math.round(p/100*1e9),actual=(5*threshold)/sourceSize;
+ document.querySelector('#maple-target-out').textContent=p.toFixed(1)+'%';
+ document.querySelector('#maple-equation').innerHTML='P(A) = (5 × '+threshold.toLocaleString('ko-KR')+') / 2<sup>32</sup>';
+ document.querySelector('#maple-intended').textContent=p.toFixed(3)+'%';
+ document.querySelector('#maple-actual').textContent=(actual*100).toFixed(3)+'%';
+ document.querySelector('#maple-relative').textContent='약 '+(100*(actual/(p/100)-1)).toFixed(1)+'% 증가';
+}
+mapleTarget.addEventListener('input',updateMaple);updateMaple();
+// 07: Rejection sampling stepper, deliberately fictional 0..8 generator.
+let accepted=0,rejected=0;
+const rejectResult=document.querySelector('#rejection-result');
+function rejectionStep(){
+ const x=Math.floor(Math.random()*9),ok=x<6;
+ if(ok)accepted++;else rejected++;
+ rejectResult.textContent=x+' → '+(ok?'채택':'기각');
+ rejectResult.className='rejection-output '+(ok?'accept':'reject');
+ document.querySelector('#rejection-summary').textContent='채택 '+accepted+' / 기각 '+rejected;
+ return ok;
+}
+document.querySelector('#rejection-draw').addEventListener('click',rejectionStep);
+document.querySelector('#rejection-loop').addEventListener('click',()=>{let count=0;while(!rejectionStep()&&count++<100){} });
+// 08: Independent binomial model and repeated runs of the same simulation.
+const binN=document.querySelector('#bin-n');
+const biasedP=50000000/4294967296;
+function refreshBinomial(){
+ const n=Number(binN.value);
+ document.querySelector('#bin-n-out').textContent=n.toLocaleString('ko-KR');
+ document.querySelector('#bin-model-normal').textContent='X ~ B('+n+', 0.01)';
+ document.querySelector('#bin-model-biased').textContent='Y ~ B('+n+', 0.0116415)';
+ document.querySelector('#bin-formula-normal').textContent='E(X) = np = '+n+' × 0.01';
+ document.querySelector('#bin-formula-biased').textContent='E(Y) = np ≈ '+(n*biasedP).toFixed(2);
+ document.querySelector('#bin-expected-normal').textContent=(n*.01).toFixed(n%100===0?0:1)+'회';
+ document.querySelector('#bin-expected-biased').textContent=(n*biasedP).toFixed(1)+'회';
+}
+binN.addEventListener('input',refreshBinomial);refreshBinomial();
+function binTrial(n){let a=0,b=0;for(let i=0;i<n;i++){if(Math.random()<.01)a++;if(Math.random()<biasedP)b++}return [a,b]}
+function experimentBinomial(){
+ const [a,b]=binTrial(Number(binN.value));
+ document.querySelector('#bin-normal').textContent=a.toLocaleString('ko-KR');
+ document.querySelector('#bin-biased').textContent=b.toLocaleString('ko-KR');
+ document.querySelector('#bin-avg-result').textContent='한 세트 결과: 정상 '+a+'회 / 편향 '+b+'회 · 시행 오차로 순서가 뒤집힐 수도 있음';
+}
+document.querySelector('#run-binomial').addEventListener('click',experimentBinomial);
+document.querySelector('#bin-avg100').addEventListener('click',()=>{
+ const n=Number(binN.value);let a=0,b=0;
+ for(let i=0;i<100;i++){const pair=binTrial(n);a+=pair[0];b+=pair[1]}
+ document.querySelector('#bin-avg-result').textContent='100세트 평균 · 정상 '+(a/100).toFixed(2)+'회 / 편향 '+(b/100).toFixed(2)+'회 · 기댓값 '+(n*.01).toFixed(2)+' vs '+(n*biasedP).toFixed(2);
+ document.querySelector('#bin-normal').textContent=(a/100).toFixed(1);
+ document.querySelector('#bin-biased').textContent=(b/100).toFixed(1);
+});
+experimentBinomial();
+/* ===== V3 / keyboard command palette ===== */
+const cmdOverlay=document.querySelector('#command-overlay'),cmdInput=document.querySelector('#command-search'),cmdResults=document.querySelector('#command-results');
+let cmdSelection=0,cmdMatches=[];
+function renderCommands(){
+ const q=cmdInput.value.trim().toLowerCase();
+ cmdMatches=slides.map((el,i)=>({i,label:el.dataset.topic||'슬라이드 '+(i+1)})).filter(x=>(x.i+1+' '+x.label).toLowerCase().includes(q));
+ cmdSelection=Math.min(cmdSelection,Math.max(0,cmdMatches.length-1));
+ cmdResults.replaceChildren();
+ cmdMatches.forEach((x,j)=>{
+ const row=document.createElement('div');row.className='command-row'+(j===cmdSelection?' active':'');
+ row.innerHTML='<span class="command-index">'+String(x.i+1).padStart(2,'0')+'</span><span>'+x.label+'</span>';
+ row.addEventListener('click',()=>{closeCommand();go(x.i)});
+ cmdResults.append(row)});
+}
+function openCommand(){cmdOverlay.classList.add('open');cmdOverlay.setAttribute('aria-hidden','false');cmdInput.value='';cmdSelection=0;renderCommands();cmdInput.focus()}
+function closeCommand(){cmdOverlay.classList.remove('open');cmdOverlay.setAttribute('aria-hidden','true');cmdInput.blur()}
+document.querySelector('#cmd-trigger').addEventListener('click',openCommand);
+cmdOverlay.addEventListener('click',e=>{if(e.target===cmdOverlay)closeCommand()});
+cmdInput.addEventListener('input',()=>{cmdSelection=0;renderCommands()});
+cmdInput.addEventListener('keydown',e=>{
+ if(e.key==='Escape'){e.preventDefault();closeCommand();return}
+ if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();cmdSelection=(cmdSelection+(e.key==='ArrowDown'?1:-1)+Math.max(1,cmdMatches.length))%Math.max(1,cmdMatches.length);renderCommands()}
+ if(e.key==='Enter'&&cmdMatches.length){e.preventDefault();const i=cmdMatches[cmdSelection].i;closeCommand();go(i)}
+});
+window.addEventListener('keydown',e=>{
+ if(e.key==='Escape'&&cmdOverlay.classList.contains('open')){closeCommand();return}
+ if((e.key.toLowerCase()==='k'||e.key==='/')&& !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName) && !cmdOverlay.classList.contains('open')){e.preventDefault();openCommand()}
+},true);
 /* ===== V2 / motion system + directly inspectable mathematics ===== */
 const slider=document.querySelector('#sim-n');
-slider.addEventListener('input',()=>{document.querySelector('#sim-n-label').textContent=Number(slider.value).toLocaleString('ko-KR')});
+slider.addEventListener('input',()=>{document.querySelector('#sim-n-label').textContent=Number(slider.value).toLocaleString('ko-KR');document.querySelector('#sim-title-count').textContent=Number(slider.value).toLocaleString('ko-KR')});
 slider.addEventListener('change',()=>document.querySelector('#run-experiment').click());
-const origCells=[...document.querySelectorAll('#map-top .cell')];
-const remainderCells=[...document.querySelectorAll('#map-bottom .cell')];
-const remainderStats=[...document.querySelectorAll('#map-stats .map-stat')];
-function focusMapping(n){
- origCells.forEach((e,i)=>e.classList.toggle('selected',i===n));
- remainderCells.forEach((e,i)=>e.classList.toggle('selected',i===n));
- remainderStats.forEach((e,i)=>e.classList.toggle('selected',i===(n%6)));
- document.querySelector('#map-tooltip').textContent=n+' % 6 = '+(n%6)+'  // 결과 '+(n%6)+'에 대응하는 원본: '+(n%6<3?2:1)+'개';
-}
-origCells.forEach((e,i)=>{e.addEventListener('pointerenter',()=>focusMapping(i));e.addEventListener('focus',()=>focusMapping(i));e.tabIndex=0; e.setAttribute('role','button');e.setAttribute('aria-label',i+'의 나머지 보기')});
-document.querySelector('#map-top').addEventListener('pointerleave',()=>{
- origCells.forEach(e=>e.classList.remove('selected'));remainderCells.forEach(e=>e.classList.remove('selected'));remainderStats.forEach(e=>e.classList.remove('selected'));
- document.querySelector('#map-tooltip').textContent='숫자 위에 커서를 올려 결과를 추적하세요.';
-});
 const canvas=document.querySelector('#ambient'),ctx=canvas.getContext('2d',{alpha:true});
 let points=[],vw=0,vh=0,mouseX=-1000,mouseY=-1000;
 function resizeField(){
